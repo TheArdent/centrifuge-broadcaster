@@ -1,0 +1,54 @@
+{
+    "name": "theardent/centrifuge-broadcaster",
+    "type": "library",
+    "description": "Centrifuge broadcaster for laravel >= 5.3, support Centrifuge v2",
+    "keywords": ["laravel", "centrifuge", "centrifugo", "broadcaster"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oleksii Yaryi",
+            "email": "oleksii.yaryi@gmail.com"
+        },
+        {
+            "name": "Nikita Stenin",
+            "email": "stenin.nikita@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/TheArdent/centrifuge-broadcaster",
+    "support": {
+        "issues": "https://github.com/TheArdent/centrifuge-broadcaster/issues",
+        "source": "https://github.com/TheArdent/centrifuge-broadcaster"
+    },
+    "require": {
+        "php": ">=5.6.4",
+        "predis/predis": "^1.1",
+        "illuminate/broadcasting": "^5.3",
+        "sl4mmer/phpcent": "dev-master"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.3",
+        "phpunit/phpunit": "^5.7|^6.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "TheArdent\\Centrifuge\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TheArdent\\Centrifuge\\Test\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TheArdent\\Centrifuge\\CentrifugeServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
