@@ -48,7 +48,7 @@ class Centrifuge implements CentrifugeContract
      * @param array $config
      * @param \Predis\Client|null $redisClient
      */
-    public function __construct(array $config, RedisClient $redisClient = null)
+    public function __construct(array $config,\Redis $redisClient = null)
     {
         $this->config = $this->initConfiguration($config);
 
