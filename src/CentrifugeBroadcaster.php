@@ -21,7 +21,7 @@ class CentrifugeBroadcaster extends Broadcaster
     /**
      * Create a new broadcaster instance.
      *
-     * @param  \TheArdent\Centrifuge\Contracts\Centrifuge $centrifuge
+     * @param \TheArdent\Centrifuge\Contracts\Centrifuge $centrifuge
      */
     public function __construct(CentrifugeContract $centrifuge)
     {
@@ -31,7 +31,7 @@ class CentrifugeBroadcaster extends Broadcaster
     /**
      * Authenticate the incoming request for a given channel.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      * @return mixed
      */
     public function auth($request)
@@ -69,8 +69,8 @@ class CentrifugeBroadcaster extends Broadcaster
     /**
      * Return the valid authentication response.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  mixed $result
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $result
      * @return mixed
      */
     public function validAuthenticationResponse($request, $result)
@@ -81,9 +81,9 @@ class CentrifugeBroadcaster extends Broadcaster
     /**
      * Broadcast the given event.
      *
-     * @param  array $channels
-     * @param  string $event
-     * @param  array $payload
+     * @param array $channels
+     * @param string $event
+     * @param array $payload
      * @return void
      */
     public function broadcast(array $channels, $event, array $payload = [])
@@ -93,7 +93,7 @@ class CentrifugeBroadcaster extends Broadcaster
 
         $response = $this->centrifuge->broadcast($this->formatChannels($channels), $payload);
 
-        if (is_object($response) && ! array_key_exists('error', $response)) {
+        if (is_object($response) && ! property_exists($response, 'error')) {
             return;
         }
 
