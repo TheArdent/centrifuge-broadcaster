@@ -54,6 +54,9 @@ class Centrifuge implements CentrifugeContract
 
         $this->phpcent = new Client($this->prepareUrl(), $this->config['api_key'], $this->config['secret']);
         
+        if ($this->config['verify']) {
+            $this->phpcent->forceIpResolveV4();
+        }
         if ($this->config['ssl_key']) {
             $this->phpcent->setCert($this->config['ssl_key']);
         }
